@@ -1,0 +1,26 @@
+.container
+  .row
+    .col-md-12
+      h1 Ping Pong Makers Power Rankings
+      table.table.table-condensed
+        thead
+          tr
+            th #
+            th Name
+            th Power
+            th Avg Spread
+            th W/L Ratio
+            th Wins
+            th Losses
+            th Total
+        tbody
+          -@players.each_with_index do |player, index|
+            tr
+              th scope="row"=index+1
+              td=player[:name]
+              td=player[:power] == -1 ? "Not enough data" : player[:power]
+              td=player[:avg_spread]
+              td=player[:losses] == 0 ? "Undefeated" : player[:ratio]
+              td=player[:wins]
+              td=player[:losses]
+              td=player[:total]
