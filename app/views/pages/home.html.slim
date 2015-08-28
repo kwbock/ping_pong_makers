@@ -16,7 +16,7 @@
         tbody
           -@players.each_with_index do |player, index|
             tr
-              th scope="row"=index+1
+              th scope="row"=(index+1)
               td=player[:name]
               td=player[:power] == -1 ? "Not enough data" : player[:power]
               td=player[:avg_spread]

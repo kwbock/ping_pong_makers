@@ -97,7 +97,7 @@ class SpreadsheetConsumerClientServiceImpl
           0
         end
       end.inject(&:+)
-      player[:power] = (player[:power] * 10.0).round(0)
+      player[:power] = (player[:power] * 100.0 / 110.0 * 10.0).round(0)
       player[:power] = -1 if player[:total] < 3
     end
 
