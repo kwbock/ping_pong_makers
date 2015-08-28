@@ -23,6 +23,8 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'jquery-rails'
 # For Heroku Deploy
 gem 'rails_12factor', group: :production
+# Puma is fast enough
+gem 'puma'
 
 group :development, :test do
   gem 'pry-rails'
