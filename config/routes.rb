@@ -6,4 +6,5 @@
 
 Rails.application.routes.draw do
   root 'pages#home'
+  get 'oauth' => 'pages#redirect_from_auth'
 end

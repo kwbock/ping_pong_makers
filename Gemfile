@@ -25,6 +25,10 @@ gem 'jquery-rails'
 gem 'rails_12factor', group: :production
 # Puma is fast enough
 gem 'puma'
+# ActiveRecord Session Store
+gem 'activerecord'
+gem 'activerecord-session_store'
+gem 'pg'
 
 group :development, :test do
   gem 'pry-rails'

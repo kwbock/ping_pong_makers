@@ -32,13 +32,24 @@ class SpreadsheetConsumerClientServiceImpl
   end
 
   def authorized?
-    !client.authorization.expired?
+    ret = true
+    session = GoogleDrive.login_with_oauth(@access_token)
+    session.spreadsheets
+  rescue Google::APIClient::AuthorizationError
+    ret = false
+  ensure
+    return ret
   end
 
   def authorize!(code)
     client.authorization.code = code
     client.authorization.fetch_access_token!
     @access_token = client.authorization.access_token
+  end
+
+  def authorize_from_access_token!(token)
+    client.authorization.access_token = token
+    @access_token = token
   end
 
   def access_token
